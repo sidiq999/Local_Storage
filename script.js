@@ -3,14 +3,12 @@ function submitForm() {
     var lastName = document.getElementById("inputLastName").value;
     var id = Math.random();
 
-    var new_data = [
+    var new_data = 
         {
             Id: id,
             firstNameValue: firstName,
             lastNameValue: lastName,
-        }
-
-    ];
+        };
 
     if(localStorage.getItem("data") == null)
     {
@@ -37,9 +35,9 @@ function displayData(values)
     values.map(data => {
         table_data += `
         <tr>
-           <td>${data[0].firstNameValue}</td>
-           <td>${data[0].lastNameValue}</td>
-           <td><button onclick="Delete(${data[0].Id})" class="btn btn-danger btn-sm">Delete</button></td>
+           <td>${data.firstNameValue}</td>
+           <td>${data.lastNameValue}</td>
+           <td><button onclick="Delete(${data.Id})" class="btn btn-danger btn-sm">Delete</button></td>
         </tr>
    `;
     });
@@ -52,7 +50,7 @@ function Delete(id)
 {
     var data = JSON.parse(localStorage.getItem("data"));
 
-    var filterData = data.filter(d => d[0].Id != id);
+    var filterData = data.filter(d => d.Id != id);
     
     localStorage.setItem("data",JSON.stringify(filterData));
 
