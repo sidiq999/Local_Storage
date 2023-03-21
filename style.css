@@ -1,0 +1,19 @@
+body {
+    background-color: powderblue;
+}
+
+label {
+    font-weight: 500;
+}
+
+span {
+    color: #ff0000;
+    font-size: medium;
+    font-weight: 400;
+}
+
+.regSuccess {
+    color: green;
+    font-size: medium;
+    font-weight: 500;
+}
